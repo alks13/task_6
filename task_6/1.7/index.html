@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1.7</title>
+</head>
+<body>
+ <br> Это для тестирования, чтобы проверить результат, который вы получили с помощью JavaScript.
+  <br>
+  <div id="coords">(координаты покажутся здесь)</div>
+
+
+  <div id="field">
+  	    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+
+  <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+  <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+  <div class="triangle-right" style="left:190px;top:-40px">4</div>
+  <div class="triangle-right" style="left:200px;top:-42px">2</div>
+
+
+
+
+<style>
+		 #field {
+		 	height: 500px;
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+	</style>
+
+
+
+
+<script type="text/javascript">
+	 document.onclick = function(e) { // показывает координаты точки клика
+      coords.innerHTML = e.clientX + ':' + e.clientY;
+    };
+	function getCoords(){
+	let coordsField = field.getBoundingClientRect();
+let agle1,
+	agle2,
+	agle3,
+	agle4;
+
+agle1  =  [coordsField.left, coordsField.top];
+agle2 = [coordsField.right ,coordsField.bottom ];
+agle3 = [coordsField.top + field.clientTop , coordsField.left + field.clientLeft];
+agle4 = [coordsField.left + field.clientLeft + field.clientWidth,
+		 coordsField.top + field.clientTop + field.clientHeight];
+
+
+
+console.log(' Первый угол: ' + agle1 );
+console.log(' Второй угол: ' +  agle2 );
+console.log(' Третий угол: ' +  agle3 );
+console.log(' Четвертый угол: ' + agle4 );
+}
+
+getCoords();
+
+
+
+
+</script>
+</body>
+</html>
